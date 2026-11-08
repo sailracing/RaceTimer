@@ -11,8 +11,8 @@
 
     struct json_object *json;
     struct json_object *json_out;
-    struct json_object_iterator *it;
-    struct json_object_iterator *itEnd;
+    struct json_object_iterator it;
+    struct json_object_iterator itEnd;
     ssize_t a_size;
     int ret, i;
     char *foo;
@@ -27,6 +27,10 @@
 
     printf("ret from Mode descriptors search = %i\n", ret);
 
+    ret = json_object_is_type( *json_out, json_type_array);
+
+    printf("is type array = %i\n", ret);
+
     it = json_object_iter_begin(json_out);
 
     printf("begin = %li\n", it);
@@ -35,7 +39,7 @@
 
     printf("end = %li\n", itEnd);
 
-    while (!json_object_iter_equal(it, itEnd)) {
+    while (!json_object_iter_equal(&it, &itEnd)) {
         printf("item name = %s\n", json_object_iter_peek_name(&it));
         json_object_iter_next(&it);
     }
