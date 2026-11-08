@@ -33,7 +33,7 @@
 
     itEnd = json_object_iter_end(json_out);
 
-    printf("end = %li\n", itEnd)
+    printf("end = %li\n", itEnd);
 
     while (!json_object_iter_equal(&it, &itEnd)) {
         printf("item name = %s\n", json_object_iter_peek_name(&it));
