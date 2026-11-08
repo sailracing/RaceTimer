@@ -24,9 +24,9 @@
     fprintf(stderr, "current mode = %i\n", ret);
 
     ret = json_object_object_get_ex(json, "mode descriptors", &json_out);
-    a_size = json_object_array_length(json_out);
 
-    fprintf(stderr, "array size = %li\n", a_size);
+    it = json_object_iter_begin(json_out);
+    itEnd = json_object_iter_end(json_out);
 
     while (!json_object_iter_equal(&it, &itEnd)) {
         printf("%s\n", json_object_iter_peek_name(&it));
