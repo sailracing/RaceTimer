@@ -11,8 +11,8 @@
 
     struct json_object *json;
     struct json_object *json_out;
-    struct json_object_iterator it;
-    struct json_object_iterator itEnd;
+    struct json_object_iterator *it;
+    struct json_object_iterator *itEnd;
     ssize_t a_size;
     int ret, i;
     char *foo;
@@ -35,7 +35,7 @@
 
     printf("end = %li\n", itEnd);
 
-    while (!json_object_iter_equal(&it, &itEnd)) {
+    while (!json_object_iter_equal(it, itEnd)) {
         printf("item name = %s\n", json_object_iter_peek_name(&it));
         json_object_iter_next(&it);
     }
