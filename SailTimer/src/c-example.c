@@ -6,38 +6,33 @@
 #include <errno.h>
 #include <json.h>   /* libjson header */
 
-int main(void) {
+
+ int main(void) {
+
     struct json_object *json;
     struct json_object *json_out;
-    struct array_list *foo_list;
+    struct json_object_iterator it;
+    struct json_object_iterator itEnd;
     ssize_t a_size;
     int ret, i;
     char *foo;
 
-    json = json_object_from_file("foo.json");
+    json = json_object_from_file("./mode-files/mode-library.json");
 
-    ret = json_object_object_get_ex(json, "people", &json_out);
+    ret = json_object_object_get_ex(json, "current mode", &json_out);
+    ret = json_object_get_int(json_out);
+    fprintf(stderr, "current mode = %i\n", ret);
 
-    fprintf(stderr, "ret = %i\n", ret);
-
-    foo = json_object_get_string(json);
-    
-    fprintf(stderr, "foo1 = %s\n", foo);
-
-    foo = json_object_get_string(json_out);
-    
-    fprintf(stderr, "foo2 = %s\n", foo);
-
-    foo_list = json_object_get_array(json_out);
-
+    ret = json_object_object_get_ex(json, "mode descriptors", &json_out);
     a_size = json_object_array_length(json_out);
 
     fprintf(stderr, "array size = %li\n", a_size);
 
-    for(i = 0; i < a_size; i++){
- //       foo = json_object_get_string(foo_list[i]);
-        fprintf(stderr, "index %i - string %s\n", i, foo);
+    while (!json_object_iter_equal(&it, &itEnd)) {
+        printf("%s\n", json_object_iter_peek_name(&it));
+        json_object_iter_next(&it);
     }
 
     return 0;
+
 }
