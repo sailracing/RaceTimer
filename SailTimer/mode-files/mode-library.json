@@ -1,0 +1,61 @@
+{
+    "mode dictionary":[
+        {
+            "mode":[
+                {
+                    "mode number":1,
+                    "mode descriptor":[
+                        {
+                            "rule":"26",
+                            "length":"360",
+                            "alert":"60",
+                            "running":"NO",
+                            "event":[
+                                {
+                                    "line1":"CLASS FLAG UP",
+                                    "line2":"AT 5:00",
+                                    "time":360,
+                                    "type":1,
+                                    "duration":0,
+                                    "repeat":5
+                                },
+                                {
+                                    "line1":"PREP FLAG UP",
+                                    "line2":"AT 4:00",
+                                    "time":300,
+                                    "type":1,
+                                    "duration":1,
+                                    "repeat":1
+                                },
+                                {
+                                    "line1":"PREP FLAG DN",
+                                    "line2":"AT 1:00",
+                                    "time":240,
+                                    "type":1,
+                                    "duration":1,
+                                    "repeat":1
+                                },
+                                {
+                                    "line1":"CLASS FLAG DN",
+                                    "line2":"AT 0:00",
+                                    "time":60,
+                                    "type":1,
+                                    "duration":1,
+                                    "repeat":1
+                                },
+                                {
+                                    "line1":"CLASS FLAG UP",
+                                    "line2":"AT 5:00",
+                                    "time":0,
+                                    "type":1,
+                                    "duration":2,
+                                    "repeat":1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
