@@ -25,11 +25,18 @@
 
     ret = json_object_object_get_ex(json, "mode descriptors", &json_out);
 
+    printf("ret from Mode descriptors search = %i\n", ret);
+
     it = json_object_iter_begin(json_out);
+
+    printf("begin = %li\n", it);
+
     itEnd = json_object_iter_end(json_out);
 
+    printf("end = %li\n", itEnd)
+
     while (!json_object_iter_equal(&it, &itEnd)) {
-        printf("%s\n", json_object_iter_peek_name(&it));
+        printf("item name = %s\n", json_object_iter_peek_name(&it));
         json_object_iter_next(&it);
     }
 
